@@ -20,7 +20,7 @@ const index = () => {
           <Text style={styles.iconEmoji}>🥬</Text>
         </View>
         
-        <Text style={styles.brandName}>Market</Text>
+        <Text style={styles.brandName}>Fresh Market</Text>
         <Text style={styles.tagline}>Fresh groceries at your doorstep</Text>
         
         <View style={styles.featureContainer}>

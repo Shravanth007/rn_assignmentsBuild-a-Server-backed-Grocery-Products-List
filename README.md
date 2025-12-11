@@ -1,227 +1,147 @@
-# Modern Grocery Marketplace
+# 🛒 Fresh Market - Modern Grocery Marketplace
 
-> A comprehensive full-stack mobile application for grocery delivery, featuring server-backed product management, real-time inventory, and seamless shopping cart experience.
+> A full-stack mobile application for grocery delivery with server-backed product management, real-time inventory tracking, category browsing, and smart shopping cart functionality.
 
-**Built as part of Mobile Development & Backend Integration coursework**
-
----
-
-## 🌟 Project Overview
-
-Market is a feature-rich grocery delivery platform that demonstrates proficiency in:
-- Building RESTful APIs with Node.js and Express
-- Database design and management with MongoDB
-- State management in React Native using Redux Toolkit
-- Mobile UI/UX design with NativeWind (Tailwind CSS)
-- Full-stack integration and deployment
+**Mobile Development & Backend Integration Project**
 
 ---
 
-## ✨ Key Features
+## 🌟 Overview
 
-### Customer Experience
-- 🎨 **Modern UI Design** - Clean, intuitive interface with gradient backgrounds and smooth interactions
-- 🛍️ **Product Browsing** - Grid layout with high-quality product images and detailed information
-- 🛒 **Smart Cart** - Real-time quantity management, automatic price calculation, and free delivery threshold
-- 📍 **Location Services** - Integrated location picker for accurate delivery addresses
-- 🔐 **User Authentication** - Secure login/signup functionality with JWT
-- ⚡ **Quick Delivery** - Promise of 10-minute express delivery
-
-### Technical Features
-- 📦 **Inventory Management** - Real-time stock tracking and low-stock indicators
-- 🔍 **Search & Filter** - Query products by name or category
-- 💾 **Persistent Cart** - AsyncStorage integration for cart persistence
-- 🎯 **Error Handling** - Comprehensive error states with user-friendly retry options
-- 📱 **Responsive Design** - Optimized for various screen sizes
+Fresh Market is a feature-rich grocery delivery platform showcasing:
+- RESTful API development with Node.js & Express
+- MongoDB database design and management
+- React Native state management using Redux Toolkit
+- Modern mobile UI/UX with NativeWind (Tailwind CSS)
+- Full-stack integration and navigation patterns
 
 ---
 
-## 🛠️ Technology Stack
+## ✨ Features
 
-### Mobile Frontend
-- **Framework:** React Native (Expo SDK 54)
-- **Language:** TypeScript
-- **Styling:** NativeWind (Tailwind CSS v4)
-- **State Management:** Redux Toolkit
-- **Navigation:** Expo Router (File-based routing)
-- **Storage:** AsyncStorage
+### 🛍️ Shopping Experience
+- **Product Grid** - Browse products in an easy-to-scan 2-column grid layout
+- **Category Navigation** - Explore products by categories (Fruits, Vegetables, Dairy, etc.)
+- **Smart Search** - Filter categories and products by name
+- **Smart Cart** - Add/remove items, update quantities, auto-calculated totals
+- **Location Picker** - Set delivery address with integrated location services
+- **Express Delivery** - 10-minute delivery promise with free shipping over ₹500
 
-### Backend Server
-- **Runtime:** Node.js
-- **Framework:** Express.js
-- **Database:** MongoDB with Mongoose ODM
-- **Authentication:** JWT (JSON Web Tokens)
-- **Security:** CORS, bcryptjs for password hashing
+### 🎨 User Interface
+- **Modern Design** - Gradient backgrounds, smooth transitions, emerald green theme
+- **Category Cards** - Colorful category browsing with product counts
+- **Product Cards** - High-quality images, stock indicators, pricing displays
+- **Empty States** - Friendly messaging when no data is available
+- **Loading States** - Branded loading indicators
+- **Error Handling** - User-friendly error messages with retry options
 
----
-
-## 📋 System Requirements
-
-Before starting, ensure your development environment has:
-
-| Requirement | Version | Purpose |
-|-------------|---------|---------|
-| Node.js | 16.x or higher | JavaScript runtime |
-| npm | 8.x or higher | Package manager |
-| MongoDB | 6.x or Atlas | Database |
-| Expo CLI | Latest | React Native tooling |
-| Git | Latest | Version control |
-
-**Mobile Testing Options:**
-- Expo Go app (iOS/Android)
-- Android Studio Emulator
-- Xcode iOS Simulator (macOS only)
+### 🔧 Technical Features
+- **Real-time Inventory** - Live stock tracking with low-stock warnings
+- **Category Filtering** - Filter products by category with dynamic routing
+- **Search Functionality** - Search products and categories by name
+- **Cart Persistence** - AsyncStorage integration for cart data
+- **API Integration** - RESTful endpoints for products and categories
+- **Error Boundaries** - Comprehensive error handling throughout the app
 
 ---
 
-## 🚀 Installation Guide
+## 🏗️ Tech Stack
 
-### Step 1: Clone Repository
+**Frontend**
+- React Native (Expo SDK 54)
+- TypeScript
+- NativeWind (Tailwind CSS v4)
+- Redux Toolkit (State Management)
+- Expo Router (File-based Navigation)
+- AsyncStorage (Local Data Persistence)
+
+**Backend**
+- Node.js & Express.js
+- MongoDB with Mongoose ODM
+- JWT Authentication
+- CORS enabled
+- RESTful API design
+
+---
+
+## 📋 Requirements
+
+**Software Needed:**
+- Node.js v16+ 
+- MongoDB (Local or Atlas Cloud)
+- Expo CLI
+- Mobile device with Expo Go app OR emulator
+
+---
+
+## 🚀 Quick Start
+
+### 1. Install Dependencies
 
 ```bash
-git clone <repository-url>
-cd Farm-Fresh-main
-```
-
-### Step 2: Install Dependencies
-
-```bash
-# Install root dependencies
+# Frontend
 npm install
 
-# Install server dependencies
+# Backend
 cd server
 npm install
 cd ..
 ```
 
-### Step 3: Database Configuration
+### 2. Setup Database
 
-Choose your preferred MongoDB setup:
+**MongoDB Atlas (Recommended):**
+1. Create free account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+2. Create cluster and get connection string
+3. Update `server/.env`:
+   ```
+   MONGO_URL=your_connection_string_here
+   ```
 
-#### Option A: MongoDB Atlas (Cloud - Recommended for Beginners)
-
-1. Visit [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
-2. Create a free account (M0 Sandbox cluster)
-3. Create a new project and cluster
-4. Navigate to: **Database → Connect → Connect your application**
-5. Copy the connection string
-6. Create/update `server/.env`:
-
-```env
-MONGO_URL=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/farm_fresh?retryWrites=true&w=majority
-PORT=3000
-JWT_SECRET=your_secure_secret_key_here
-```
-
-#### Option B: Local MongoDB Installation
-
-1. Download from [MongoDB Community Server](https://www.mongodb.com/try/download/community)
-2. Install following platform instructions
-3. Start MongoDB service:
-
+**OR Local MongoDB:**
 ```bash
-# Windows (PowerShell as Administrator)
-net start MongoDB
-
-# macOS/Linux
-sudo systemctl start mongod
+# Start MongoDB service
+net start MongoDB  # Windows
+# Update server/.env with: mongodb://localhost:27017/farm_fresh
 ```
 
-4. Update `server/.env`:
-
-```env
-MONGO_URL=mongodb://localhost:27017/farm_fresh
-PORT=3000
-JWT_SECRET=your_secure_secret_key_here
-```
-
-### Step 4: Seed Database
+### 3. Seed Database
 
 ```bash
 cd server
-npm run seed
+npm run seed  # Creates 8 sample products
 ```
 
-**Expected Output:**
-```
-✅ Connected to MongoDB — seeding...
-🗑️  Cleared existing products
-✅ Successfully seeded 8 products
-📦 Products:
-   - Red Apple (₹40)
-   - Banana Bunch (₹30)
-   - Spinach Pack (₹20)
-   ...
-```
+### 4. Configure Network
 
-### Step 5: Configure Network Settings
-
-Update the API endpoint in `utils/api.js`:
-
+Update your computer's IP in `utils/api.js`:
 ```javascript
-const getApiBaseUrl = () => {
-    if (Platform.OS === 'web') {
-        return 'http://localhost:3000';
-    } else {
-        // Replace with your machine's local IP
-        return 'http://YOUR_IP_ADDRESS:3000';
-    }
-};
+return 'http://YOUR_IP:3000';  // e.g., 192.168.1.105:3000
 ```
 
-**Find your local IP:**
+Find your IP:
 ```bash
-# Windows
-ipconfig
-# Look for IPv4 Address (e.g., 192.168.1.105)
-
-# macOS/Linux
-ifconfig | grep "inet "
-# or
-ip addr show
+ipconfig  # Windows - look for IPv4 Address
 ```
 
----
+### 5. Start the App
 
-## 🎮 Running the Application
-
-### Starting the Backend Server
-
-Open a terminal and run:
-
+**Terminal 1 - Backend:**
 ```bash
 cd server
-npm start
+npm start  # Runs on port 3000
 ```
 
-**Successful startup shows:**
-```
-Server is running on port 3000
-Server accessible at:
-  - http://localhost:3000
-  - http://192.168.x.x:3000
-Mongo connected
-```
-
-### Starting the Mobile App
-
-Open a **second terminal** and run:
-
+**Terminal 2 - Frontend:**
 ```bash
-npm start
+npm start  # Opens Expo DevTools
 ```
 
-This launches Expo DevTools with several options:
-
-- **Press `a`** - Open in Android emulator
-- **Press `i`** - Open in iOS simulator (macOS only)
-- **Press `w`** - Open in web browser
-- **Scan QR code** - Open in Expo Go app on physical device
+Then scan QR code with Expo Go app or press 'a' for Android emulator.
 
 ---
 
-## 🧪 API Testing
+## 📱 App Structure
 
 ### Testing with cURL (PowerShell)
 
@@ -267,183 +187,82 @@ Import this collection or manually test:
 
 ---
 
-## 📁 Project Architecture
+## 📱 App Structure
 
 ```
-Farm-Fresh-main/
-│
-├── app/                          # Expo Router screens
-│   ├── (auth)/                   # Authentication flow
-│   │   ├── login.tsx            # Login screen
-│   │   └── signup.tsx           # Signup screen
-│   │
-│   ├── (main)/                   # Main application
-│   │   ├── _layout.tsx          # Tab navigation
-│   │   ├── home.tsx             # Product grid (REDESIGNED)
-│   │   ├── cart.tsx             # Shopping cart (FUNCTIONAL)
-│   │   ├── categories.tsx       # Category browser
-│   │   ├── orders.tsx           # Order history
-│   │   └── profile.tsx          # User profile
-│   │
-│   ├── _layout.tsx              # Root layout
-│   ├── index.tsx                # Welcome screen (REDESIGNED)
-│   └── global.css               # TailwindCSS styles
-│
-├── components/                   # Reusable components
-│   ├── CartLoader.tsx           # Loading skeleton
-│   └── LocationPicker.tsx       # Map integration
-│
-├── server/                       # Backend API
-│   ├── config/
-│   │   └── dbConfig.js          # MongoDB connection
-│   │
-│   ├── models/
-│   │   ├── product.js           # Product schema
-│   │   └── user.model.js        # User schema
-│   │
-│   ├── routes/
-│   │   ├── product.routes.js    # Product endpoints
-│   │   └── auth.routes.js       # Auth endpoints
-│   │
-│   ├── middleware/
-│   │   └── auth.middleware.js   # JWT verification
-│   │
-│   ├── utils/
-│   │   └── generateToken.js     # Token generation
-│   │
-│   ├── index.js                 # Express server
-│   ├── seed.js                  # Database seeder
-│   ├── .env                     # Environment config
-│   └── package.json
-│
-├── store/                        # Redux state
-│   ├── store.ts                 # Store configuration
-│   └── cartSlice.ts             # Cart state logic
-│
-├── utils/
-│   └── api.js                   # API client
-│
-├── assets/
-│   └── images/                  # Static assets
-│
-├── package.json
-├── tsconfig.json
-├── tailwind.config.js
-├── README.md                     # This file
-├── SETUP_GUIDE.md               # Quick start
-└── IMPROVEMENTS.md              # Change log
+app/
+├── (auth)/
+│   ├── login.tsx              # User login
+│   └── signup.tsx             # User registration
+├── (main)/
+│   ├── home.tsx              # Product grid & browsing
+│   ├── categories.tsx        # Category browsing (NEW)
+│   ├── cart.tsx              # Shopping cart
+│   ├── orders.tsx            # Order history
+│   └── profile.tsx           # User profile
+├── category/
+│   └── [name].tsx            # Dynamic category filter (NEW)
+├── index.tsx                 # Welcome screen
+└── _layout.tsx               # App navigation
+
+components/
+├── CategoryCard.tsx          # Reusable category card (NEW)
+├── LocationPicker.tsx        # Location selection
+└── CartLoader.tsx            # Loading skeleton
+
+server/
+├── models/
+│   ├── product.js           # Product schema
+│   └── user.model.js        # User schema
+├── routes/
+│   ├── product.routes.js    # Product API endpoints
+│   └── auth.routes.js       # Auth endpoints
+├── index.js                 # Express server
+└── seed.js                  # Database seeder
+
+store/
+├── cartSlice.ts             # Cart state (Redux)
+└── store.ts                 # Redux store config
+
+utils/
+├── api.js                   # API client
+└── constants.ts             # Shared constants (NEW)
 ```
 
 ---
 
-## 🎨 Design & UI Enhancements
+## 🎯 Key Features Explained
 
-This project features a complete UI/UX redesign from basic templates to production-quality interfaces.
+### 1. Product Browsing (Home Screen)
+- **2-column grid layout** for better product visibility
+- Product cards show: image, name, price, category, stock
+- Low stock badges for items under 20 units
+- Add to cart with single tap
+- Loading and error states with retry
 
-### Design Philosophy
-- **Consistency:** Unified emerald green theme across all screens
-- **Clarity:** Clear visual hierarchy and intuitive navigation
-- **Feedback:** Immediate user feedback for all interactions
-- **Delight:** Subtle animations and micro-interactions
+### 2. Category Navigation (NEW)
+- **Browse Categories page** with search functionality
+- 6 categories: Fruits, Vegetables, Dairy, Electronics, Clothes, Snacks
+- Each card shows category icon and product count
+- Tap any category to see filtered products
+- Dynamic routing to `/category/[name]`
 
-### Screen Improvements
+### 3. Shopping Cart
+- Add/remove items
+- Increment/decrement quantities
+- Auto-calculated subtotal, delivery fee, and total
+- Free delivery over ₹500
+- Empty cart state
+- Persistent storage with AsyncStorage
 
-#### 1. Welcome Screen (`app/index.tsx`)
-**Enhancements:**
-- Gradient background with floating decorative circles
-- Branded app icon with shadow effects
-- Feature showcase section
-- Guest browsing option
-- Improved CTA button hierarchy
-
-#### 2. Product Home (`app/(main)/home.tsx`)
-**Key Changes:**
-- **Layout:** Horizontal scroll → 2-column responsive grid
-- **Product Cards:** Enhanced with square images, low-stock badges, price comparisons
-- **Loading States:** Branded spinner with descriptive text
-- **Error Handling:** User-friendly error messages with retry functionality
-- **Empty States:** Contextual messaging with icons
-
-#### 3. Shopping Cart (`app/(main)/cart.tsx`)
-**Major Upgrades:**
-- ✅ Fully functional quantity increment/decrement
-- ✅ Working remove item feature
-- ✅ Real-time total calculation
-- ✅ Bill breakdown (subtotal, delivery fee, total)
-- ✅ Free delivery threshold indicator (₹500+)
-- ✅ Empty cart state with helpful messaging
-- ✅ Item-level total display
-
-### Color Palette
-- **Primary:** Emerald 600 (#059669)
-- **Secondary:** Emerald 700 (#047857)
-- **Background:** Emerald 50 (#f0fdf4)
-- **Accent:** Red for warnings/errors
-- **Neutral:** Gray scale for text hierarchy
+### 4. Search & Filter
+- Search categories by name
+- Filter products by category
+- Query parameters: `?q=search&category=filter`
 
 ---
 
-## 🔧 Technical Implementation Highlights
-
-### Frontend Architecture
-
-**State Management (Redux Toolkit)**
-```typescript
-// Enhanced cart slice with proper actions
-cartSlice.ts includes:
-- addToCart: Add/update items with quantity
-- removeFromCart: Complete item removal
-- updateQuantity: Direct quantity updates
-- clearCart: Reset cart state
-- loadCart: Hydrate from AsyncStorage
-```
-
-**API Integration**
-```javascript
-// Dynamic API endpoint configuration
-getApiBaseUrl() handles:
-- Web platform: localhost
-- Mobile platforms: Local network IP
-- Environment-based switching
-```
-
-**Persistent Storage**
-- AsyncStorage integration for cart persistence
-- Location data caching
-- User preference storage
-
-### Backend Architecture
-
-**Database Schema (Mongoose)**
-```javascript
-Product Schema:
-- name: String (required)
-- price: Number (required)
-- imageUrl: String
-- category: String
-- description: String
-- stock: Number (default: 0)
-- createdAt: Date (auto-generated)
-```
-
-**API Endpoints**
-```
-GET    /products              # List all products
-GET    /products?q=search     # Search by name
-GET    /products?category=X   # Filter by category
-GET    /products/:id          # Single product
-POST   /products              # Create product
-```
-
-**Security Features**
-- CORS configuration for cross-origin requests
-- JWT-based authentication
-- Password hashing with bcryptjs
-- Input validation
-
----
-
-## 🐛 Troubleshooting Guide
+## 🧪 Testing the API
 
 ### Issue: "Cannot connect to remote server"
 **Symptoms:** App shows network errors, products don't load

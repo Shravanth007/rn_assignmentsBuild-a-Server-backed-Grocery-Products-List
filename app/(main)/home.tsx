@@ -7,6 +7,7 @@ import LocationPicker from "../../components/LocationPicker";
 import { productsApi } from "../../utils/api";
 import { useDispatch } from 'react-redux';
 import { addToCart } from '@/store/cartSlice';
+import { CATEGORIES } from '../../utils/constants';
 
 interface Product {
   _id: string;
@@ -80,16 +81,6 @@ const Home = () => {
     }
   };
 
-  const categories = [
-    { id: 1, name: "Fruits", icon: "🍎", color: "bg-red-100" },
-    { id: 2, name: "Vegetables", icon: "🥬", color: "bg-green-100" },
-    { id: 3, name: "Dairy", icon: "🥛", color: "bg-blue-100" },
-    { id: 4, name: "Electronics", icon: "🥛", color: "bg-blue-100" },
-    { id: 5, name: "Clothes", icon: "🥛", color: "bg-blue-100" },
-    { id: 6, name: "Snacks", icon: "🥛", color: "bg-blue-100" },
-  ];
-
-
   return (
     <SafeAreaView className='flex-1 bg-white'>
       <StatusBar barStyle="light-content" backgroundColor="#059669" />
@@ -146,8 +137,8 @@ const Home = () => {
         {/* Categories */}
 
         <View className='px-4 py-4 bg-white'>
-          <Text className=''>Categories</Text>
-          <FlatList data={categories} horizontal
+          <Text className='text-base font-semibold text-gray-800 mb-3'>Shop by Category</Text>
+          <FlatList data={CATEGORIES} horizontal
             renderItem={({ item }) => (
               <View className="items-center mr-4">
                 <View
